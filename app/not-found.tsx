@@ -1,5 +1,6 @@
-
 import type { Metadata } from "next";
+import css from "@/components/NotFound/NotFound.module.css";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "404 — Page Not Found | NoteHub",
@@ -14,17 +15,23 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt: "NoteHub Open Graph Image",
-      }
-    ]
-  }
+      },
+    ],
+  },
 };
 
 export default function NotFound() {
-
   return (
-    <div>
-      <h1>404 - Page not found</h1>
-      <p>You will be redirected to the home page automatically.</p>
+    <div className={css.wrapper}>
+      <p className={css.code}>404</p>
+      <h1 className={css.title}>Page not found</h1>
+      <p className={css.message}>
+        Sorry, the page you are looking for doesn&apos;t exist or has been
+        moved.
+      </p>
+      <Link href="/" className={css.homeButton}>
+        Back to Home
+      </Link>
     </div>
   );
 }

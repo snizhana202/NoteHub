@@ -1,0 +1,46 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  min-height: 60vh;
+  text-align: center;
+  padding: 32px;
+}
+
+.code {
+  font-size: 72px;
+  font-weight: 700;
+  color: #d7b29d;
+  margin: 0;
+  line-height: 1;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #4a2c2a;
+  margin: 0;
+}
+
+.message {
+  font-size: 15px;
+  color: #6b5b52;
+  max-width: 400px;
+}
+
+.homeButton {
+  padding: 8px 24px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+  background-color: #6f4e37;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.homeButton:hover {
+  background-color: #4a2c2a;
+}
