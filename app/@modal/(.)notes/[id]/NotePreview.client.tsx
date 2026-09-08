@@ -1,4 +1,3 @@
-// app/@modal/(.)notes/[id]/NotePreview.client.tsx
 "use client";
 
 import { useRouter } from "next/navigation";
@@ -20,7 +19,6 @@ export default function NotePreviewClient({ id }: Props) {
     queryFn: () => fetchNoteById(id),
     refetchOnMount: false,
   });
-
 
   if (isLoading) {
     return (
@@ -49,13 +47,19 @@ export default function NotePreviewClient({ id }: Props) {
   return (
     <Modal onClose={() => router.back()}>
       <div className={css.container}>
-        <button onClick={() => router.back()}>Close</button>
-        <h2>{data.title}</h2>
-        <p>{data.content}</p>
-        <p className={css.tag}>{data.tag}</p>
-        <p className={css.date}>
-          {new Date(data.createdAt).toLocaleDateString()}
-        </p>
+        <div className={css.header}>
+          <h2>{data.title}</h2>
+          <button className={css.backBtn} onClick={() => router.back()}>
+            Close
+          </button>
+        </div>
+        <p className={css.content}>{data.content}</p>
+        <div className={css.footer}>
+          <span className={css.tag}>{data.tag}</span>
+          <p className={css.date}>
+            {new Date(data.createdAt).toLocaleDateString()}
+          </p>
+        </div>
       </div>
     </Modal>
   );
