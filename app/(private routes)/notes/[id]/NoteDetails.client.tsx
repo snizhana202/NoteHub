@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useNote } from "@/lib/hooks/useNote";
 import NoteView from "@/components/NoteView/NoteView";
+import NoteStateMessage from "@/components/NoteView/NoteStateMessage";
 import css from "./NoteDetails.module.css";
 
 type Props = {
@@ -20,8 +21,21 @@ export default function NoteDetailsClient({ id }: Props) {
     }
   };
 
-  if (isLoading) return <p>Loading, please wait...</p>;
-  if (error || !data) return <p>Something went wrong.</p>;
+  if (isLoading) {
+    return (
+      <main className={css.mainContent}>
+        <NoteStateMessage message="Loading, please wait..." />
+      </main>
+    );
+  }
+
+  if (error || !data) {
+    return (
+      <main className={css.mainContent}>
+        <NoteStateMessage message="Something went wrong." />
+      </main>
+    );
+  }
 
   return (
     <main className={css.mainContent}>

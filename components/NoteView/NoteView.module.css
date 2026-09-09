@@ -79,3 +79,16 @@
   background-color: #6f4e37;
   color: #fff;
 }
+
+.stateMessage {
+  margin: 0;
+  padding: 32px;
+  text-align: center;
+  font-size: 15px;
+  color: #6b5b52;
+  background-color: #faf1e6;
+  border: 1px solid #d7b29d;
+  border-radius: 12px;
+  max-width: 700px;
+  width: 100%;
+}

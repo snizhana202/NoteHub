@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useNote } from "@/lib/hooks/useNote";
 import Modal from "@/components/Modal/Modal";
 import NoteView from "@/components/NoteView/NoteView";
+import NoteStateMessage from "@/components/NoteView/NoteStateMessage";
 
 type Props = {
   id: string;
@@ -16,7 +17,7 @@ export default function NotePreviewClient({ id }: Props) {
   if (isLoading) {
     return (
       <Modal onClose={() => router.back()}>
-        <p>Loading...</p>
+        <NoteStateMessage message="Loading..." />
       </Modal>
     );
   }
@@ -24,7 +25,7 @@ export default function NotePreviewClient({ id }: Props) {
   if (error) {
     return (
       <Modal onClose={() => router.back()}>
-        <p>Error loading note.</p>
+        <NoteStateMessage message="Error loading note." />
       </Modal>
     );
   }
@@ -32,7 +33,7 @@ export default function NotePreviewClient({ id }: Props) {
   if (!data) {
     return (
       <Modal onClose={() => router.back()}>
-        <p>Note not found.</p>
+        <NoteStateMessage message="Note not found." />
       </Modal>
     );
   }
