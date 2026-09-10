@@ -5,6 +5,7 @@ import { useNote } from "@/lib/hooks/useNote";
 import NoteView from "@/components/NoteView/NoteView";
 import NoteStateMessage from "@/components/NoteView/NoteStateMessage";
 import css from "./NoteDetails.module.css";
+import Loading from "@/components/Loading/Loading";
 
 type Props = {
   id: string;
@@ -24,7 +25,7 @@ export default function NoteDetailsClient({ id }: Props) {
   if (isLoading) {
     return (
       <main className={css.mainContent}>
-        <NoteStateMessage message="Loading, please wait..." />
+        <Loading />
       </main>
     );
   }

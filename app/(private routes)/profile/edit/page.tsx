@@ -8,6 +8,7 @@ import { useAuthStore } from "@/lib/store/authStore";
 import { updateMe } from "@/lib/api/clientApi";
 import { FiUser, FiCamera } from "react-icons/fi";
 import { MdOutlineClose } from "react-icons/md";
+import Loading from "@/components/Loading/Loading";
 
 export default function EditProfile() {
   const router = useRouter();
@@ -62,7 +63,7 @@ export default function EditProfile() {
   };
 
   if (!user) {
-    return <p>Loading...</p>;
+    return <Loading />;
   }
 
   return (

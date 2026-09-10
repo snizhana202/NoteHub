@@ -9,6 +9,7 @@ import { useDebouncedCallback } from "use-debounce";
 import SearchBox from "@/components/SearchBox/SearchBox";
 import Pagination from "@/components/Pagination/Pagination";
 import Link from "next/link";
+import Loading from "@/components/Loading/Loading";
 
 interface NotesClientProps {
   tag: string;
@@ -52,7 +53,7 @@ export default function NotesClient({ tag }: NotesClientProps) {
         </Link>
       </header>
 
-      {isLoading && <p>Loading...</p>}
+      {isLoading && <Loading />}
       {error && <p>Error loading notes</p>}
 
       {data && data.notes.length > 0 && <NoteList notes={data.notes} />}
