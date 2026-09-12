@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NoteHub
+A note-taking web application with tagging, search, and pagination for organizing personal notes efficiently.
 
-## Getting Started
+## 🛠 Tech Stack
 
-First, run the development server:
+* **Frontend**: Next.js, React, TypeScript, CSS Modules
+* **State Management**: TanStack Query (server state), Zustand (client state)
+* **Forms & Validation**: Formik, Yup
+* **HTTP Client**: Axios
+* **Icons**: React Icons
+* **Deployment**: Vercel
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🏗 Project Structure
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+* `/app`: Next.js App Router pages, layouts, and API routes (proxying requests to the backend).
+* `/components`: Reusable UI components (forms, note cards, modal, pagination, etc.).
+* `/lib`: API client functions and Zustand stores.
+* `/types`: Shared TypeScript types.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 Key Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+* **Authentication**: Sign up and sign in with session persisted via cookies.
+* **Notes CRUD**: Create, view, and delete notes.
+* **Tags & Filtering**: Organize notes by tag and filter the list accordingly.
+* **Search & Pagination**: Debounced search and paginated notes list.
+* **Note Preview**: Notes open in a modal when navigating from the list, and as a full page when accessed via a direct link (Next.js Intercepting Routes).
+* **User Profile**: View and edit profile information.
+* **Themed UI**: Custom chocolate/cream color palette applied consistently across the app.
 
-## Learn More
+## 📦 Quick Start
 
-To learn more about Next.js, take a look at the following resources:
+1. Clone: `git clone https://github.com/snizhana202/NoteHub.git`
+2. Install: Navigate to the project folder and run `npm install`.
+3. Env: Create a `.env` file in the project root and set `NEXT_PUBLIC_API_URL`.
+4. Run: Start the development server using `npm run dev`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 👤 Author
+Snizhana
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+* GitHub: [snizhana202](https://github.com/snizhana202)
+* Live Demo: [https://notehub-snizhana202s-projects.vercel.app](https://notehub-snizhana202s-projects.vercel.app)
