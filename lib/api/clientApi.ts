@@ -1,10 +1,6 @@
 import type { AxiosResponse } from "axios";
 import type { Note, NoteTag } from "../../types/note";
-import type {
-  RegisterRequest,
-  LoginRequest,
-  CheckSessionResponse,
-} from "@/types/auth";
+import type { RegisterRequest, LoginRequest } from "@/types/auth";
 import type { User } from "@/types/user";
 import api from "./api";
 
@@ -44,25 +40,18 @@ export async function fetchNotes(
 }
 
 export async function fetchNoteById(id: string): Promise<Note> {
-  const response: AxiosResponse<FetchNoteResponse> = await api.get(
-    `/notes/${id}`,
-  );
-  return response.data.note;
+  const response: AxiosResponse<Note> = await api.get(`/notes/${id}`);
+  return response.data;
 }
 
 export async function createNote(data: CreateNoteData): Promise<Note> {
-  const response: AxiosResponse<FetchNoteResponse> = await api.post(
-    "/notes",
-    data,
-  );
-  return response.data.note;
+  const response: AxiosResponse<Note> = await api.post("/notes", data);
+  return response.data;
 }
 
 export async function deleteNote(id: string): Promise<Note> {
-  const response: AxiosResponse<FetchNoteResponse> = await api.delete(
-    `/notes/${id}`,
-  );
-  return response.data.note;
+  const response: AxiosResponse<Note> = await api.delete(`/notes/${id}`);
+  return response.data;
 }
 
 // --- Auth ---
@@ -82,8 +71,12 @@ export const logout = async () => {
 };
 
 export const checkSession = async () => {
-  const { data } = await api.get<CheckSessionResponse>("/auth/session");
-  return data.success;
+  try {
+    await api.post("/auth/refresh");
+    return true;
+  } catch {
+    return false;
+  }
 };
 
 export const getMe = async () => {
@@ -91,11 +84,17 @@ export const getMe = async () => {
   return data;
 };
 
-export const updateMe = async (payload: FormData | Partial<User>) => {
-  const { data } = await api.patch<User>("/users/me", payload, {
-    headers: payload instanceof FormData
-      ? { "Content-Type": "multipart/form-data" }
-      : undefined,
-  });
+export const updateUsername = async (username: string) => {
+  const { data } = await api.patch<User>("/users/me", { username });
+  return data;
+};
+
+export const updateAvatar = async (file: File) => {
+  const formData = new FormData();
+  formData.append("avatar", file);
+  const { data } = await api.patch<{ url: string }>(
+    "/users/me/avatar",
+    formData,
+  );
   return data;
 };

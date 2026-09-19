@@ -1,13 +1,9 @@
 export type RegisterRequest = {
-    email: string;
-    password: string;
+  email: string;
+  password: string;
 };
 
 export type LoginRequest = {
-    email: string;
-    password: string;
-}
-
-export type CheckSessionResponse = {
-  success: boolean;
+  email: string;
+  password: string;
 };
