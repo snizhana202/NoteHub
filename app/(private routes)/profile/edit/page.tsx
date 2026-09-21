@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuthStore } from "@/lib/store/authStore";
-import { updateMe } from "@/lib/api/clientApi";
+import { updateUsername, updateAvatar } from "@/lib/api/clientApi";
 import { FiUser, FiCamera } from "react-icons/fi";
 import { MdOutlineClose } from "react-icons/md";
 import Loading from "@/components/Loading/Loading";
@@ -18,21 +18,26 @@ export default function EditProfile() {
     user?.avatar && !user.avatar.includes("default-avatar") ? user.avatar : "",
   );
   const [file, setFile] = useState<File | null>(null);
+  const [isSaving, setIsSaving] = useState(false);
 
   const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsSaving(true);
+
     try {
-      const formData = new FormData();
-      formData.append("username", username);
+      let updatedUser = await updateUsername(username);
+
       if (file) {
-        formData.append("avatar", file);
+        const { url } = await updateAvatar(file);
+        updatedUser = { ...updatedUser, avatar: url };
       }
 
-      const updatedUser = await updateMe(formData);
       setUser(updatedUser);
       router.push("/profile");
     } catch (error) {
       console.error("Failed to update profile:", error);
+    } finally {
+      setIsSaving(false);
     }
   };
 
@@ -126,8 +131,12 @@ export default function EditProfile() {
           <p>Email: {user.email}</p>
 
           <div className={css.actions}>
-            <button type="submit" className={css.saveButton}>
-              Save
+            <button
+              type="submit"
+              className={css.saveButton}
+              disabled={isSaving}
+            >
+              {isSaving ? "Saving..." : "Save"}
             </button>
             <button
               type="button"
