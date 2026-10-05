@@ -5,4 +5,9 @@ const api = axios.create({
   withCredentials: true,
 });
 
+export const serverApi = axios.create({
+  baseURL: "https://notehub-vnly.onrender.com/api",
+  withCredentials: true,
+});
+
 export default api;
