@@ -33,3 +33,10 @@
 .button:hover {
   background-color: #4a2c2a;
 }
+
+.emptyMessage {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 1.125rem;
+  color: #6f4e37;
+}

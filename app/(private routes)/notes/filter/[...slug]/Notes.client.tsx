@@ -57,6 +57,16 @@ export default function NotesClient({ tag }: NotesClientProps) {
       {error && <p>Error loading notes</p>}
 
       {data && data.notes.length > 0 && <NoteList notes={data.notes} />}
+
+      {data && data.notes.length === 0 && (
+        <p className={css.emptyMessage}>
+          {searchText
+            ? "No notes match your search."
+            : tag && tag !== "all"
+              ? `No notes in the "${tag}" category yet.`
+              : "You don't have any notes yet."}
+        </p>
+      )}
     </div>
   );
 }
