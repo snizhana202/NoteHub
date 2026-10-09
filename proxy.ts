@@ -14,13 +14,6 @@ export async function proxy(request: NextRequest) {
   const refreshToken = cookieStore.get("refreshToken")?.value;
   const sessionId = cookieStore.get("sessionId")?.value;
 
-  console.log("PROXY DEBUG:", {
-    pathname,
-    accessToken,
-    refreshToken,
-    sessionId,
-  });
-
   const isAuthRoute = authRoutes.some((route) => pathname.startsWith(route));
   const isPrivateRoute = privateRoutes.some((route) =>
     pathname.startsWith(route),
