@@ -19,12 +19,16 @@ export async function POST() {
 
     if (setCookie) {
       const cookieArray = Array.isArray(setCookie) ? setCookie : [setCookie];
+      const isProduction = process.env.NODE_ENV === "production";
       for (const cookieStr of cookieArray) {
         const parsed = parse(cookieStr);
         const options = {
           expires: parsed.Expires ? new Date(parsed.Expires) : undefined,
           path: parsed.Path,
           maxAge: Number(parsed["Max-Age"]),
+          httpOnly: true,
+          secure: isProduction,
+          sameSite: "lax" as const,
         };
         if (parsed.accessToken)
           cookieStore.set("accessToken", parsed.accessToken, options);
