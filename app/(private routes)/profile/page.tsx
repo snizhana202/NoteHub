@@ -11,14 +11,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: "User Profile",
     description: "Profile page with user information and avatar",
-    url: "https://your-app.vercel.app/profile",
-    siteName: "Your App",
+    url: "https://notehub-snizhana202s-projects.vercel.app/profile",
+    siteName: "NoteHub",
     images: [
       {
-        url: "https://ac.goit.global/path-to-avatar.jpg",
+        url: "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg",
         width: 1200,
         height: 630,
-        alt: "User Avatar",
+        alt: "NoteHub",
       },
     ],
     type: "website",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "User Profile",
     description: "Profile page with user information and avatar",
-    images: ["https://ac.goit.global/path-to-avatar.jpg"],
+    images: ["https://ac.goit.global/fullstack/react/notehub-og-meta.jpg"],
   },
 };
 
