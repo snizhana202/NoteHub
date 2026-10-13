@@ -78,7 +78,7 @@ export default function AuthForm({
   };
 
   return (
-    <main className={css.mainContent}>
+    <div className={css.mainContent}>
       <h1 className={css.formTitle}>{title}</h1>
 
       <Formik
@@ -132,6 +132,6 @@ export default function AuthForm({
           </Form>
         )}
       </Formik>
-    </main>
+    </div>
   );
 }

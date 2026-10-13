@@ -72,7 +72,7 @@ export default function EditProfile() {
   }
 
   return (
-    <main className={css.mainContent}>
+    <div className={css.mainContent}>
       <div className={css.profileCard}>
         <div className={css.avatarWrapper}>
           {previewUrl ? (
@@ -148,6 +148,6 @@ export default function EditProfile() {
           </div>
         </form>
       </div>
-    </main>
+    </div>
   );
 }

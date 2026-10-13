@@ -24,23 +24,23 @@ export default function NoteDetailsClient({ id }: Props) {
 
   if (isLoading) {
     return (
-      <main className={css.mainContent}>
+      <div className={css.mainContent}>
         <Loading />
-      </main>
+      </div>
     );
   }
 
   if (error || !data) {
     return (
-      <main className={css.mainContent}>
+      <div className={css.mainContent}>
         <NoteStateMessage message="Something went wrong." />
-      </main>
+      </div>
     );
   }
 
   return (
-    <main className={css.mainContent}>
+    <div className={css.mainContent}>
       <NoteView note={data} onBack={handleGoBack} backLabel="Back" />
-    </main>
+    </div>
   );
 }

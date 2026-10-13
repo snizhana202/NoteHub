@@ -37,7 +37,7 @@ export default async function Profile() {
     !user.avatar || user.avatar.includes("default-avatar");
 
   return (
-    <main className={css.mainContent}>
+    <div className={css.mainContent}>
       <div className={css.profileCard}>
         <div className={css.avatarWrapper}>
           {!isDefaultAvatar ? (
@@ -72,6 +72,6 @@ export default async function Profile() {
           </Link>
         </div>
       </div>
-    </main>
+    </div>
   );
 }
