@@ -23,7 +23,7 @@ export default function NotesClient({ tag }: NotesClientProps) {
   const debouncedSearch = useDebouncedCallback((value: string) => {
     setSearchText(value);
     setPage(1);
-  }, 1000);
+  }, 500);
 
   useEffect(() => {
     debouncedSearch(inputValue);
