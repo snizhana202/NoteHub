@@ -36,7 +36,9 @@ export default function NoteList({ notes }: NoteListProps) {
               onClick={() => mutation.mutate(note.id)}
               disabled={mutation.isPending}
             >
-              {mutation.isPending ? "Deleting..." : "Delete"}
+              {mutation.isPending && mutation.variables === note.id
+                ? "Deleting..."
+                : "Delete"}
             </button>
           </div>
         </li>
