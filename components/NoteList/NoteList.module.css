@@ -95,3 +95,66 @@
   box-shadow: 0 4px 10px rgba(74, 44, 42, 0.2);
   transform: translateY(-1px);
 }
+
+.confirmTitle {
+  margin: 0 0 12px;
+  font-size: 1.5rem;
+  color: #4a2c2a;
+}
+
+.confirmText {
+  margin: 0 0 24px;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  color: #6b4f45;
+}
+
+.confirmNoteTitle {
+  font-weight: 700;
+  color: #4a2c2a;
+  word-break: break-word;
+}
+
+.confirmActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.cancelButton {
+  padding: 8px 16px;
+  border: 1px solid #7b4f35;
+  border-radius: 8px;
+  background: transparent;
+  color: #7b4f35;
+  font: inherit;
+  cursor: pointer;
+}
+
+.cancelButton:hover {
+  background: #f5ebe0;
+}
+
+.cancelButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.confirmDelete {
+  padding: 8px 20px;
+  border: 1px solid #b3261e;
+  border-radius: 8px;
+  background: #b3261e;
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+
+.confirmDelete:hover {
+  background: #8f1d17;
+}
+
+.confirmDelete:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

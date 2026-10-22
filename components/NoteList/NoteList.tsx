@@ -51,15 +51,29 @@ export default function NoteList({ notes }: NoteListProps) {
       </ul>
       {noteToDelete && (
         <Modal onClose={() => setNoteToDelete(null)}>
-          <p>{`Delete "${noteToDelete.title}"? This can't be undone.`}</p>
-          <button onClick={() => setNoteToDelete(null)}>Cancel</button>
-          <button
-            className={css.button}
-            onClick={() => mutation.mutate(noteToDelete.id)}
-            disabled={mutation.isPending}
-          >
-            {mutation.isPending ? "Deleting..." : "Delete"}
-          </button>
+          <h3 className={css.confirmTitle}>Delete this note?</h3>
+          <p className={css.confirmText}>
+            <strong className={css.confirmNoteTitle}>
+              {noteToDelete.title}
+            </strong>{" "}
+            {`will be deleted permanently. This can't be undone.`}
+          </p>
+          <div className={css.confirmActions}>
+            <button
+              className={css.cancelButton}
+              onClick={() => setNoteToDelete(null)}
+              disabled={mutation.isPending}
+            >
+              Cancel
+            </button>
+            <button
+              className={css.confirmDelete}
+              onClick={() => mutation.mutate(noteToDelete.id)}
+              disabled={mutation.isPending}
+            >
+              {mutation.isPending ? "Deleting..." : "Delete"}
+            </button>
+          </div>
         </Modal>
       )}
     </>
