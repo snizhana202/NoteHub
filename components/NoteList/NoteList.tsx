@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Note } from "@/types/note";
 import { useState } from "react";
 import Modal from "@/components/Modal/Modal";
+import toast from "react-hot-toast";
 
 export interface NoteListProps {
   notes: Note[];
@@ -16,9 +17,13 @@ export default function NoteList({ notes }: NoteListProps) {
 
   const mutation = useMutation({
     mutationFn: (id: string) => deleteNote(id),
+    networkMode: "always",
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["notes"] });
       setNoteToDelete(null);
+    },
+    onError: () => {
+      toast.error("Failed to delete the note. Please try again.");
     },
   });
 

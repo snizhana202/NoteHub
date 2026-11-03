@@ -6,6 +6,7 @@ import TanStackProvider from "@/components/TanStackProvider/TanStackProvider";
 import { Roboto } from "next/font/google";
 import AuthProvider from "@/components/AuthProvider/AuthProvider";
 import layoutCss from "./layout.module.css";
+import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
   title: "Note Hub",
@@ -50,6 +51,7 @@ export default function RootLayout({
               {modal}
             </main>
             <Footer />
+            <Toaster position="top-right" />
           </AuthProvider>
         </TanStackProvider>
       </body>
