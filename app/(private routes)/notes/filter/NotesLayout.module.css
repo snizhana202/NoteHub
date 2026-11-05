@@ -1,0 +1,28 @@
+.layout {
+  margin: -2.5rem -1.5rem;
+  width: calc(100% + 3rem);
+  min-height: calc(100% + 5rem);
+  display: grid;
+  grid-template-columns: 208px 1fr;
+}
+
+.sidebar {
+  background-color: #444;
+}
+
+.content {
+  border-left: 1px solid #dee2e6;
+  padding: 2.5rem 1.5rem;
+  min-width: 0;
+}
+
+@media (max-width: 768px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .content {
+    border-left: none;
+    padding: 1.5rem 1rem;
+  }
+}
