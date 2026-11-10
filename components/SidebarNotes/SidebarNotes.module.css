@@ -30,3 +30,21 @@
   color: #ddd;
   font-weight: 600;
 }
+
+@media (max-width: 768px) {
+  .menuList {
+    flex-direction: row;
+    gap: 8px;
+    padding: 12px 16px;
+    height: auto;
+    overflow-x: auto;
+  }
+
+  .menuItem {
+    flex-shrink: 0;
+  }
+
+  .menuLink {
+    white-space: nowrap;
+  }
+}
