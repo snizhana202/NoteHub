@@ -35,3 +35,52 @@
 .navigation li a:hover {
   color: #fff;
 }
+
+.burger {
+  display: none;
+  padding: 0.25rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.burger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  margin: 5px 0;
+  background-color: #fdf6ec;
+}
+
+@media (max-width: 700px) {
+  .header {
+    position: relative;
+    padding: 1rem;
+  }
+
+  .burger {
+    display: block;
+  }
+
+  .nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    padding: 1rem;
+    background-color: #4a2c2a;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .navOpen {
+    display: block;
+  }
+
+  .navigation {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
